@@ -48,3 +48,16 @@ sysinfo.txt
 # Se você usa UPM em modo global, não precisa de nada aqui.
 # Se você usa um cache local específico, ignore-o:
 # .gradle/
+
+########################
+# Build artifacts (do not commit)
+########################
+*.apk
+*.aab
+*.app/
+
+# Android/Gradle/Unity intermediate build output that can be huge
+.utmp/
+
+# Unity Burst debug artifacts
+WAN Structure_BurstDebugInformation_DoNotShip/
