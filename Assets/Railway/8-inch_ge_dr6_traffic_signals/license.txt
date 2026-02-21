@@ -1,0 +1,11 @@
+Model Information:
+* title:	8-Inch GE Dr6 Traffic Signals
+* source:	https://sketchfab.com/3d-models/8-inch-ge-dr6-traffic-signals-64eccd680a254434b329a6a32aaa571f
+* author:	Signalrenders (https://sketchfab.com/Signalrenders)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "8-Inch GE Dr6 Traffic Signals" (https://sketchfab.com/3d-models/8-inch-ge-dr6-traffic-signals-64eccd680a254434b329a6a32aaa571f) by Signalrenders (https://sketchfab.com/Signalrenders) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
