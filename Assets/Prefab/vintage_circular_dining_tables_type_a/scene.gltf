@@ -1,0 +1,536 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 4896,
+      "max": [
+        0.5721368193626404,
+        0.8141201734542847,
+        0.5704695582389832
+      ],
+      "min": [
+        -0.572137176990509,
+        -0.0006226302939467132,
+        -0.5704697370529175
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 58752,
+      "componentType": 5126,
+      "count": 4896,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 4896,
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 4896,
+      "max": [
+        0.9985727667808533,
+        0.9981059432029724
+      ],
+      "min": [
+        0.0018542935140430927,
+        0.0018487503984943032
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 39168,
+      "componentType": 5126,
+      "count": 4896,
+      "max": [
+        0.9985727667808533,
+        0.9981059432029724
+      ],
+      "min": [
+        0.0018542935140430927,
+        0.0018487503984943032
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 78336,
+      "componentType": 5126,
+      "count": 4896,
+      "max": [
+        0.9985727667808533,
+        0.9981059432029724
+      ],
+      "min": [
+        0.0018542935140430927,
+        0.0018487503984943032
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 117504,
+      "componentType": 5126,
+      "count": 4896,
+      "max": [
+        0.9985727667808533,
+        0.9981059432029724
+      ],
+      "min": [
+        0.0018542935140430927,
+        0.0018487503984943032
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 19530,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 117504,
+      "componentType": 5126,
+      "count": 4896,
+      "max": [
+        0.5721368193626404,
+        0.8141201734542847,
+        0.5704695582389832
+      ],
+      "min": [
+        -0.572137176990509,
+        -0.0006226302939467132,
+        -0.5704697370529175
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 176256,
+      "componentType": 5126,
+      "count": 4896,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 78336,
+      "componentType": 5126,
+      "count": 4896,
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 156672,
+      "componentType": 5126,
+      "count": 4896,
+      "max": [
+        0.9985727667808533,
+        0.9981059432029724
+      ],
+      "min": [
+        0.0018542935140430927,
+        0.0018487503984943032
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 195840,
+      "componentType": 5126,
+      "count": 4896,
+      "max": [
+        0.9985727667808533,
+        0.9981059432029724
+      ],
+      "min": [
+        0.0018542935140430927,
+        0.0018487503984943032
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 235008,
+      "componentType": 5126,
+      "count": 4896,
+      "max": [
+        0.9985727667808533,
+        0.9981059432029724
+      ],
+      "min": [
+        0.0018542935140430927,
+        0.0018487503984943032
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 274176,
+      "componentType": 5126,
+      "count": 4896,
+      "max": [
+        0.9985727667808533,
+        0.9981059432029724
+      ],
+      "min": [
+        0.0018542935140430927,
+        0.0018487503984943032
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 78120,
+      "componentType": 5125,
+      "count": 19530,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Mad_Lobster_Workshop (https://sketchfab.com/Mad_Lobster_Workshop)",
+      "license": "COPYRIGHT TO Mad_Lobster_Workshop",
+      "source": "https://sketchfab.com/3d-models/vintage-circular-dining-tables-type-a-a2a662b672a4409a848770ca45212f00",
+      "title": "Vintage Circular Dining Tables Type A"
+    },
+    "generator": "Sketchfab-16.21.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 156240,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 313344,
+      "byteOffset": 156240,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 235008,
+      "byteOffset": 469584,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 156672,
+      "byteOffset": 704592,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 861264,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Vintage_Circular_Dining_Table_Type_A_Standard_baseColor.png"
+    },
+    {
+      "uri": "textures/Vintage_Circular_Dining_Table_Type_A_Standard_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/Vintage_Circular_Dining_Table_Type_A_Standard_normal.png"
+    },
+    {
+      "uri": "textures/Vintage_Circular_Dining_Table_Type_A_Alternate_baseColor.png"
+    },
+    {
+      "uri": "textures/Vintage_Circular_Dining_Table_Type_A_Alternate_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/Vintage_Circular_Dining_Table_Type_A_Alternate_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Vintage_Circular_Dining_Table_Type_A_Standard",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Vintage_Circular_Dining_Table_Type_A_Alternate",
+      "normalTexture": {
+        "index": 5
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 3
+        },
+        "metallicRoughnessTexture": {
+          "index": 4
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Object_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4,
+            "TEXCOORD_2": 5,
+            "TEXCOORD_3": 6
+          },
+          "indices": 7,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Object_1",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 9,
+            "POSITION": 8,
+            "TANGENT": 10,
+            "TEXCOORD_0": 11,
+            "TEXCOORD_1": 12,
+            "TEXCOORD_2": 13,
+            "TEXCOORD_3": 14
+          },
+          "indices": 15,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "root"
+    },
+    {
+      "children": [
+        3,
+        5
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "GLTF_SceneRootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.6416887640953064,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Vintage Circular Dining Table Type A Standard_0"
+    },
+    {
+      "mesh": 0,
+      "name": "Object_4"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.6631690859794617,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Vintage Circular Dining Table Type A Alternate_1"
+    },
+    {
+      "mesh": 1,
+      "name": "Object_6"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    },
+    {
+      "sampler": 0,
+      "source": 4
+    },
+    {
+      "sampler": 0,
+      "source": 5
+    }
+  ]
+}
