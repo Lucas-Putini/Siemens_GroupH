@@ -1,26 +1,28 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
+
 
 public class ChipSnapZone : MonoBehaviour
 {
     [Header("Snap Requirements")]
     public ChipType accepts;
-    public Transform snapTarget;             // where chip ends up
-    public float snapDistance = 0.03f;       // must be within this when released
-    public float snapAngle = 15f;            // degrees allowed
+    public Transform snapTarget;
+    public float magnetRange = 0.12f;     // start pulling when within this range
+    public float snapDistance = 0.02f;    // final "lock" distance
+    public float snapAngle = 20f;         // allowed rotation mismatch to snap
 
-    [Header("Magnet Pull (after release)")]
-    public float pullSpeed = 12f;            // higher = faster
-    public float pullDuration = 0.25f;       // seconds
+    [Header("Magnet Pull")]
+    public float pullSpeed = 8f;          // higher = faster pull
+    public bool pullWhileGrabbed = true;  // if true, will auto-release then pull
 
     [Header("Locking")]
     public bool lockAfterSnap = true;
 
-    private ChipId _candidate;
-    private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable _candidateGrab;
-    private Rigidbody _candidateRb;
-    private bool _occupied;
+    private ChipId _chip;
+    private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable _grab;
+    private Rigidbody _rb;
+    private bool _snapped;
+    private Coroutine _pullRoutine;
 
     private void Reset()
     {
@@ -31,7 +33,7 @@ public class ChipSnapZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_occupied) return;
+        if (_snapped) return;
 
         var chip = other.GetComponentInParent<ChipId>();
         if (!chip || chip.type != accepts) return;
@@ -39,86 +41,109 @@ public class ChipSnapZone : MonoBehaviour
         var grab = chip.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         if (!grab) return;
 
-        _candidate = chip;
-        _candidateGrab = grab;
-        _candidateRb = chip.GetComponent<Rigidbody>();
+        _chip = chip;
+        _grab = grab;
+        _rb = chip.GetComponent<Rigidbody>();
 
-        // Listen for release
-        _candidateGrab.selectExited.AddListener(OnChipReleased);
+        // start checking/pulling while inside
+        if (_pullRoutine == null)
+            _pullRoutine = StartCoroutine(MagnetLoop());
     }
 
     private void OnTriggerExit(Collider other)
     {
         var chip = other.GetComponentInParent<ChipId>();
-        if (!chip || chip != _candidate) return;
+        if (!chip || chip != _chip) return;
 
-        CleanupCandidate();
+        StopMagnet();
     }
 
-    private void OnChipReleased(SelectExitEventArgs args)
+    private void StopMagnet()
     {
-        if (_occupied || _candidate == null) return;
-
-        // Only snap if it's still inside trigger range AND close enough
-        float dist = Vector3.Distance(_candidate.transform.position, snapTarget.position);
-        float ang = Quaternion.Angle(_candidate.transform.rotation, snapTarget.rotation);
-
-        if (dist <= snapDistance && ang <= snapAngle)
+        if (_pullRoutine != null)
         {
-            StartCoroutine(PullAndSnap());
+            StopCoroutine(_pullRoutine);
+            _pullRoutine = null;
         }
-        // else: do nothing, user released too far or misaligned
+
+        _chip = null;
+        _grab = null;
+        _rb = null;
     }
 
-    private IEnumerator PullAndSnap()
+    private IEnumerator MagnetLoop()
     {
-        _occupied = true;
-
-        // Safety: stop physics fighting the pull
-        if (_candidateRb)
+        while (!_snapped && _chip != null && _grab != null)
         {
-            _candidateRb.linearVelocity = Vector3.zero;
-            _candidateRb.angularVelocity = Vector3.zero;
-            _candidateRb.isKinematic = true;
-        }
+            float dist = Vector3.Distance(_chip.transform.position, snapTarget.position);
+            float ang = Quaternion.Angle(_chip.transform.rotation, snapTarget.rotation);
 
-        Transform chipT = _candidate.transform;
+            // If within magnet range, begin pull behavior
+            if (dist <= magnetRange)
+            {
+                // If it's being held and we want pull-while-grabbed:
+                if (_grab.isSelected && pullWhileGrabbed)
+                {
+                    // Force release from the hand
+                    var interactor = _grab.firstInteractorSelecting;
+                    if (interactor != null && _grab.interactionManager != null)
+                    {
+                        _grab.interactionManager.SelectExit(interactor, _grab);
+                    }
+                }
 
-        Vector3 startPos = chipT.position;
-        Quaternion startRot = chipT.rotation;
+                // Now pull toward target (works whether it was grabbed or not)
+                PullStep();
 
-        float t = 0f;
-        while (t < pullDuration)
-        {
-            t += Time.deltaTime;
-            float k = Mathf.Clamp01(t / pullDuration);
-
-            chipT.position = Vector3.Lerp(startPos, snapTarget.position, k);
-            chipT.rotation = Quaternion.Slerp(startRot, snapTarget.rotation, k);
+                // Snap condition
+                if (dist <= snapDistance && ang <= snapAngle)
+                {
+                    SnapNow();
+                    yield break;
+                }
+            }
 
             yield return null;
         }
-
-        chipT.position = snapTarget.position;
-        chipT.rotation = snapTarget.rotation;
-
-        if (lockAfterSnap && _candidateGrab)
-        {
-            _candidateGrab.enabled = false; // locks it permanently
-        }
-
-        CleanupCandidate(); // remove listeners etc.
     }
 
-    private void CleanupCandidate()
+    private void PullStep()
     {
-        if (_candidateGrab != null)
-            _candidateGrab.selectExited.RemoveListener(OnChipReleased);
+        Transform t = _chip.transform;
 
-        _candidate = null;
-        _candidateGrab = null;
-        _candidateRb = null;
+        // Move
+        t.position = Vector3.MoveTowards(t.position, snapTarget.position, pullSpeed * Time.deltaTime);
 
-        // NOTE: don't clear _occupied here; socket stays filled once snapped
+        // Rotate
+        t.rotation = Quaternion.Slerp(t.rotation, snapTarget.rotation, pullSpeed * Time.deltaTime);
+
+        // Prevent physics fighting movement
+        if (_rb != null)
+        {
+            _rb.linearVelocity = Vector3.zero;
+            _rb.angularVelocity = Vector3.zero;
+        }
+    }
+
+    private void SnapNow()
+    {
+        _snapped = true;
+
+        if (_rb != null)
+        {
+            _rb.linearVelocity = Vector3.zero;
+            _rb.angularVelocity = Vector3.zero;
+            _rb.isKinematic = true;
+        }
+
+        _chip.transform.position = snapTarget.position;
+        _chip.transform.rotation = snapTarget.rotation;
+
+        if (lockAfterSnap && _grab != null)
+        {
+            _grab.enabled = false;
+        }
+
+        StopMagnet();
     }
 }
