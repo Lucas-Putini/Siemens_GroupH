@@ -11648,7 +11648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9141812803038935354, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8147
+      value: 0.985
       objectReference: {fileID: 0}
     - target: {fileID: 9141812803038935354, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11817,7 +11817,7 @@ MonoBehaviour:
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
   _pointableElement: {fileID: 0}
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 2140412689}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
   _releaseDistance: 0
