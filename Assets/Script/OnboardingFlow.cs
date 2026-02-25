@@ -77,6 +77,11 @@ public sealed class OnboardingFlow : MonoBehaviour
     [SerializeField]
     GameObject[] m_HideDuringOnboarding = Array.Empty<GameObject>();
 
+    [Header("XR / 3D Interaction")]
+    [Tooltip("If true, the panel background and guide text will not block raycasts. OVR hand/controller rays pass through to grabbable objects (Grabbable, HandGrabInteractable). Next/Skip buttons still receive input.")]
+    [SerializeField]
+    bool m_Allow3DInteractionDuringOnboarding = true;
+
     [Header("Events")]
     [SerializeField]
     UnityEvent m_OnCompleted = new UnityEvent();
@@ -85,6 +90,12 @@ public sealed class OnboardingFlow : MonoBehaviour
     UnityEvent m_OnSkipped = new UnityEvent();
 
     readonly Dictionary<GameObject, bool> m_PreviousActiveState = new Dictionary<GameObject, bool>();
+
+    bool m_PanelRaycastTargetWasEnabled;
+    bool m_PanelRaycastWasModified;
+    Image m_PanelBackgroundImage;
+    bool m_GuideTextRaycastTargetWasEnabled;
+    bool m_GuideTextRaycastWasModified;
 
     int m_CurrentSlide;
     bool m_Running;
@@ -122,7 +133,9 @@ public sealed class OnboardingFlow : MonoBehaviour
 
         if (!HasRequiredReferences())
         {
-            Debug.LogWarning("[OnboardingFlow] Missing required references. Flow not started.");
+            Debug.LogWarning("[OnboardingFlow] Missing required references. Hiding panel so you can interact with the scene.");
+            if (m_PanelRoot != null)
+                m_PanelRoot.SetActive(false);
             enabled = false;
             return;
         }
@@ -135,6 +148,8 @@ public sealed class OnboardingFlow : MonoBehaviour
 
     void OnDisable()
     {
+        SetPanelBlocksRaycasts(true);
+
         if (m_NextButton != null)
             m_NextButton.onClick.RemoveListener(HandleNextClicked);
 
@@ -199,6 +214,7 @@ public sealed class OnboardingFlow : MonoBehaviour
         m_Running = true;
 
         SetHiddenObjectsActive(false);
+        SetPanelBlocksRaycasts(!m_Allow3DInteractionDuringOnboarding);
         ApplySlide();
     }
 
@@ -272,6 +288,8 @@ public sealed class OnboardingFlow : MonoBehaviour
     {
         m_Running = false;
 
+        SetPanelBlocksRaycasts(true);
+
         if (!string.IsNullOrWhiteSpace(m_PlayerPrefsKey))
         {
             PlayerPrefs.SetInt(m_PlayerPrefsKey, 1);
@@ -288,6 +306,48 @@ public sealed class OnboardingFlow : MonoBehaviour
             m_OnSkipped.Invoke();
         else
             m_OnCompleted.Invoke();
+    }
+
+    void SetPanelBlocksRaycasts(bool blocks)
+    {
+        if (m_PanelRoot == null)
+            return;
+
+        if (m_PanelBackgroundImage == null)
+        {
+            m_PanelBackgroundImage = m_PanelRoot.GetComponent<Image>();
+            if (m_PanelBackgroundImage == null)
+                m_PanelBackgroundImage = m_PanelRoot.GetComponentInChildren<Image>(true);
+        }
+
+        if (blocks)
+        {
+            if (m_PanelBackgroundImage != null && m_PanelRaycastWasModified)
+            {
+                m_PanelBackgroundImage.raycastTarget = m_PanelRaycastTargetWasEnabled;
+                m_PanelRaycastWasModified = false;
+            }
+            if (m_GuideText != null && m_GuideTextRaycastWasModified)
+            {
+                m_GuideText.raycastTarget = m_GuideTextRaycastTargetWasEnabled;
+                m_GuideTextRaycastWasModified = false;
+            }
+        }
+        else if (m_Allow3DInteractionDuringOnboarding)
+        {
+            if (m_PanelBackgroundImage != null)
+            {
+                m_PanelRaycastTargetWasEnabled = m_PanelBackgroundImage.raycastTarget;
+                m_PanelBackgroundImage.raycastTarget = false;
+                m_PanelRaycastWasModified = true;
+            }
+            if (m_GuideText != null)
+            {
+                m_GuideTextRaycastTargetWasEnabled = m_GuideText.raycastTarget;
+                m_GuideText.raycastTarget = false;
+                m_GuideTextRaycastWasModified = true;
+            }
+        }
     }
 
     void SetHiddenObjectsActive(bool active)
