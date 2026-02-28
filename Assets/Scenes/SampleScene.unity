@@ -1949,11 +1949,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 890693701633a463b9c3a82841bd1a16, type: 2}
     - target: {fileID: 9141812803038935354, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.322
+      value: 1.321
       objectReference: {fileID: 0}
     - target: {fileID: 9141812803038935354, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.153
+      value: 1.232
       objectReference: {fileID: 0}
     - target: {fileID: 9141812803038935354, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4804,11 +4804,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d8065d039de964f1b94527579d606863, type: 2}
     - target: {fileID: 9141812803038935354, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.322
+      value: 1.321
       objectReference: {fileID: 0}
     - target: {fileID: 9141812803038935354, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.157
+      value: 1.232
       objectReference: {fileID: 0}
     - target: {fileID: 9141812803038935354, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5688,7 +5688,7 @@ MonoBehaviour:
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
   _pointableElement: {fileID: 0}
-  _rigidbody: {fileID: 1005435536}
+  _rigidbody: {fileID: 0}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
   _releaseDistance: 0
@@ -10916,9 +10916,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3267105545456723576, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1964602102}
-    - targetCorrespondingSourceObject: {fileID: 3267105545456723576, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1964602107}
   m_SourcePrefab: {fileID: 100100000, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
 --- !u!1 &1895228281
 GameObject:
@@ -10975,7 +10972,7 @@ MonoBehaviour:
   _twoGrabTransformer: {fileID: 0}
   _targetTransform: {fileID: 0}
   _maxGrabPoints: -1
-  _rigidbody: {fileID: 1964602107}
+  _rigidbody: {fileID: 0}
   _kinematicWhileSelected: 1
   _throwWhenUnselected: 1
   _forceKinematicDisabled: 0
@@ -10996,7 +10993,7 @@ MonoBehaviour:
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
   _pointableElement: {fileID: 0}
-  _rigidbody: {fileID: 1964602107}
+  _rigidbody: {fileID: 0}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
   _releaseDistance: 0
@@ -11019,7 +11016,7 @@ MonoBehaviour:
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
   _pointableElement: {fileID: 1964602101}
-  _rigidbody: {fileID: 1964602107}
+  _rigidbody: {fileID: 0}
   _physicsGrabbable: {fileID: 0}
   _resetGrabOnGrabsUpdated: 1
   _scoringModifier:
@@ -11043,33 +11040,6 @@ MonoBehaviour:
   _movementProvider: {fileID: 0}
   _handAligment: 1
   _handGrabPoses: []
---- !u!54 &1964602107
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964602097}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1966440307
 GameObject:
   m_ObjectHideFlags: 0
@@ -11993,11 +11963,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9141812803038935354, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.322
+      value: 1.321
       objectReference: {fileID: 0}
     - target: {fileID: 9141812803038935354, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.144
+      value: 1.232
       objectReference: {fileID: 0}
     - target: {fileID: 9141812803038935354, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       propertyPath: m_LocalPosition.z
