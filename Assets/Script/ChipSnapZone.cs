@@ -30,6 +30,9 @@ public class ChipSnapZone : MonoBehaviour
     private Collider[] _chipCols;
     private MonoBehaviour[] _metaGrabBehaviours; // GrabInteractable / HandGrabInteractable etc.
 
+    // tracks if we temporarily disabled grab to force-release
+    private bool _tempGrabDisabled;
+
     private void Reset()
     {
         snapTarget = transform;
@@ -52,8 +55,9 @@ public class ChipSnapZone : MonoBehaviour
         _rb = chip.GetComponent<Rigidbody>();
         _chipCols = chip.GetComponentsInChildren<Collider>(true);
 
-        // cache common Meta grab behaviours so we can disable/enable them
+        // cache Meta grab behaviours (GrabInteractable / HandGrabInteractable)
         _metaGrabBehaviours = chip.GetComponents<MonoBehaviour>();
+        _tempGrabDisabled = false;
 
         // prevent board collision from blocking the pull
         SetBoardCollisionIgnored(true);
@@ -78,6 +82,13 @@ public class ChipSnapZone : MonoBehaviour
             _pullRoutine = null;
         }
 
+        // If we force-disabled grabbing but never snapped, restore it
+        if (!_snapped && _tempGrabDisabled)
+        {
+            DisableGrabBehaviours(false);
+            _tempGrabDisabled = false;
+        }
+
         if (!_snapped)
             SetBoardCollisionIgnored(false);
 
@@ -97,11 +108,13 @@ public class ChipSnapZone : MonoBehaviour
 
             if (dist <= magnetRange)
             {
-                // If it is currently grabbed, force-release it when close enough
-                if (pullWhileGrabbed && IsGrabbed(_grabbable))
+                // If grabbed and we want pull-while-grabbed: force-release near target
+                if (pullWhileGrabbed && IsGrabbed(_grabbable) && !_tempGrabDisabled)
                 {
                     ForceReleaseByDisablingGrab();
-                    // give 1 frame so the grab system fully drops it
+                    _tempGrabDisabled = true;
+
+                    // give 1 frame so Meta grab system fully drops it
                     yield return null;
                 }
 
@@ -143,10 +156,21 @@ public class ChipSnapZone : MonoBehaviour
     {
         _snapped = true;
 
+        // Mark sensor training progress (if chip belongs to a sensor)
+        // Prefer looking up from snapTarget (since snap zones are usually on the sensor/board).
+        var sensor = snapTarget != null ? snapTarget.GetComponentInParent<SensorState>() : null;
+        if (sensor == null && _chip != null) sensor = _chip.GetComponentInParent<SensorState>();
+
+        if (sensor != null)
+        {
+            if (accepts == ChipType.D25) sensor.chipD25Installed = true;
+            if (accepts == ChipType.D27) sensor.chipD27Installed = true;
+        }
+
         // exact placement
         _chip.transform.SetPositionAndRotation(snapTarget.position, snapTarget.rotation);
 
-        // parent so it follows the board/sensor movement
+        // parent so it follows the sensor/board movement
         _chip.transform.SetParent(snapTarget, true);
 
         if (_rb != null)
@@ -156,18 +180,20 @@ public class ChipSnapZone : MonoBehaviour
             _rb.isKinematic = true;
         }
 
-        // restore board collision (safe now)
+        // restore collisions (safe now)
         SetBoardCollisionIgnored(false);
 
-        // lock it (keep disabled) so it can't be grabbed again
+        // Lock behavior:
+        // - if lockAfterSnap: keep grab disabled
+        // - else: re-enable grab so user can remove chip later
         if (lockAfterSnap)
         {
             DisableGrabBehaviours(true);
         }
         else
         {
-            // if you want it still grabbable after snapping, re-enable:
             DisableGrabBehaviours(false);
+            _tempGrabDisabled = false;
         }
 
         StopMagnet();
@@ -176,7 +202,7 @@ public class ChipSnapZone : MonoBehaviour
     private bool IsGrabbed(Grabbable g)
     {
         // works in most Meta Interaction SDK versions:
-        return g.SelectingPointsCount > 0;
+        return g != null && g.SelectingPointsCount > 0;
     }
 
     private void ForceReleaseByDisablingGrab()
