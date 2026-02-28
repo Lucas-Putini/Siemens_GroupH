@@ -1473,7 +1473,7 @@ Transform:
   m_GameObject: {fileID: 108405953}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.045, y: 0, z: 0.134}
+  m_LocalPosition: {x: -0.045, y: 0.58, z: 0.134}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1492,13 +1492,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChipSnapZone
   accepts: 0
-  snapTarget: {fileID: 2140412688}
+  snapTarget: {fileID: 108405954}
   magnetRange: 0.12
   snapDistance: 0.03
   snapAngle: 25
   pullSpeed: 20
   pullWhileGrabbed: 1
   lockAfterSnap: 1
+  boardCollider: {fileID: 1964602104}
 --- !u!65 &108405956
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1518,8 +1519,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.19763881, y: 4.232478, z: 0.27897397}
-  m_Center: {x: -0.0123472605, y: 1.6162395, z: -0.010506511}
+  m_Size: {x: 0.19763881, y: 3.3082068, z: 0.27897397}
+  m_Center: {x: -0.0123472605, y: 1.1541039, z: -0.010506511}
 --- !u!1 &127318917
 GameObject:
   m_ObjectHideFlags: 0
@@ -5610,15 +5611,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3267105545456723576, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1005435541}
+    - targetCorrespondingSourceObject: {fileID: 3267105545456723576, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1005435546}
   m_SourcePrefab: {fileID: 100100000, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
 --- !u!1 &1005435534 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3267105545456723576, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
-  m_PrefabInstance: {fileID: 1005435533}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1005435535 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9141812803038935354, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
   m_PrefabInstance: {fileID: 1005435533}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &1005435536
@@ -5688,7 +5687,7 @@ MonoBehaviour:
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
   _pointableElement: {fileID: 0}
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 1005435536}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
   _releaseDistance: 0
@@ -5735,6 +5734,19 @@ MonoBehaviour:
   _movementProvider: {fileID: 0}
   _handAligment: 1
   _handGrabPoses: []
+--- !u!114 &1005435546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005435534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5486d7e6aa3b4e2bafcebd86fa8be8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChipId
+  type: 1
 --- !u!1 &1007795028
 GameObject:
   m_ObjectHideFlags: 0
@@ -8387,7 +8399,7 @@ Transform:
   m_GameObject: {fileID: 1352509025}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.344, y: 0, z: 0.219}
+  m_LocalPosition: {x: -0.344, y: 0.52, z: 0.219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8406,13 +8418,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChipSnapZone
   accepts: 1
-  snapTarget: {fileID: 1005435535}
+  snapTarget: {fileID: 1352509026}
   magnetRange: 0.12
   snapDistance: 0.015
   snapAngle: 25
   pullSpeed: 50
   pullWhileGrabbed: 1
   lockAfterSnap: 1
+  boardCollider: {fileID: 1964602104}
 --- !u!65 &1352509028
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8432,8 +8445,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.19262783, y: 4.449397, z: 0.26259282}
-  m_Center: {x: 0.001148209, y: 1.7246991, z: 0.021578316}
+  m_Size: {x: 0.19262783, y: 2.9862814, z: 0.26259282}
+  m_Center: {x: 0.001148209, y: 0.9931419, z: 0.021578316}
 --- !u!1 &1374747269
 GameObject:
   m_ObjectHideFlags: 0
@@ -10863,7 +10876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9141812803038935354, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.80269
+      value: 0.8249
       objectReference: {fileID: 0}
     - target: {fileID: 9141812803038935354, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10916,6 +10929,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3267105545456723576, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1964602102}
+    - targetCorrespondingSourceObject: {fileID: 3267105545456723576, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1964602107}
   m_SourcePrefab: {fileID: 100100000, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
 --- !u!1 &1895228281
 GameObject:
@@ -10972,7 +10988,7 @@ MonoBehaviour:
   _twoGrabTransformer: {fileID: 0}
   _targetTransform: {fileID: 0}
   _maxGrabPoints: -1
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 1964602107}
   _kinematicWhileSelected: 1
   _throwWhenUnselected: 1
   _forceKinematicDisabled: 0
@@ -10993,7 +11009,7 @@ MonoBehaviour:
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
   _pointableElement: {fileID: 0}
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 1964602107}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
   _releaseDistance: 0
@@ -11016,7 +11032,7 @@ MonoBehaviour:
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
   _pointableElement: {fileID: 1964602101}
-  _rigidbody: {fileID: 0}
+  _rigidbody: {fileID: 1964602107}
   _physicsGrabbable: {fileID: 0}
   _resetGrabOnGrabsUpdated: 1
   _scoringModifier:
@@ -11040,6 +11056,38 @@ MonoBehaviour:
   _movementProvider: {fileID: 0}
   _handAligment: 1
   _handGrabPoses: []
+--- !u!65 &1964602104 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 210206450007785982, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
+  m_PrefabInstance: {fileID: 1894583351}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1964602107
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964602097}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1966440307
 GameObject:
   m_ObjectHideFlags: 0
@@ -11698,15 +11746,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3267105545456723576, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2140412694}
+    - targetCorrespondingSourceObject: {fileID: 3267105545456723576, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2140412699}
   m_SourcePrefab: {fileID: 100100000, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
 --- !u!1 &2140412687 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3267105545456723576, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
-  m_PrefabInstance: {fileID: 2140412686}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2140412688 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9141812803038935354, guid: 5cfb9a2151a9c40579b36b7bba2a5265, type: 3}
   m_PrefabInstance: {fileID: 2140412686}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &2140412689
@@ -11823,6 +11869,19 @@ MonoBehaviour:
   _releaseDistance: 0
   _resetGrabOnGrabsUpdated: 1
   _physicsGrabbable: {fileID: 0}
+--- !u!114 &2140412699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140412687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5486d7e6aa3b4e2bafcebd86fa8be8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChipId
+  type: 0
 --- !u!4 &277227711033836644
 Transform:
   m_ObjectHideFlags: 0
