@@ -2,21 +2,33 @@ using UnityEngine;
 
 public class TrafficLightController : MonoBehaviour
 {
-    public GameObject redLight;
-    public GameObject yellowLight;
-    public GameObject greenLight;
+    [Header("Use only what you need")]
+    public GameObject redON;
+    public GameObject redOFF;
+
+    public GameObject greenON;
+    public GameObject greenOFF;
+
+    private void Start()
+    {
+        SetGreen(); // default state at game start
+    }
 
     public void SetRed()
     {
-        if (redLight) redLight.SetActive(true);
-        if (yellowLight) yellowLight.SetActive(false);
-        if (greenLight) greenLight.SetActive(false);
+        if (redON) redON.SetActive(true);
+        if (redOFF) redOFF.SetActive(false);
+
+        if (greenON) greenON.SetActive(false);
+        if (greenOFF) greenOFF.SetActive(true);
     }
 
     public void SetGreen()
     {
-        if (redLight) redLight.SetActive(false);
-        if (yellowLight) yellowLight.SetActive(false);
-        if (greenLight) greenLight.SetActive(true);
+        if (redON) redON.SetActive(false);
+        if (redOFF) redOFF.SetActive(true);
+
+        if (greenON) greenON.SetActive(true);
+        if (greenOFF) greenOFF.SetActive(false);
     }
 }
