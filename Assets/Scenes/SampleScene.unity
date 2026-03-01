@@ -4948,7 +4948,7 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 0}
+  _pointableElement: {fileID: 512098585}
   _rigidbody: {fileID: 512098586}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
@@ -5369,7 +5369,7 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 0}
+  _pointableElement: {fileID: 545491254}
   _rigidbody: {fileID: 545491251}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
@@ -10125,7 +10125,7 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 0}
+  _pointableElement: {fileID: 1005435540}
   _rigidbody: {fileID: 1005435536}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
@@ -12983,7 +12983,7 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 0}
+  _pointableElement: {fileID: 1275582957}
   _rigidbody: {fileID: 1275582958}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
@@ -17279,7 +17279,7 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 0}
+  _pointableElement: {fileID: 1771627346}
   _rigidbody: {fileID: 1771627347}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
@@ -17631,7 +17631,7 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 0}
+  _pointableElement: {fileID: 1824277437}
   _rigidbody: {fileID: 1824277434}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
@@ -18427,7 +18427,7 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 0}
+  _pointableElement: {fileID: 1964602101}
   _rigidbody: {fileID: 1964602107}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
@@ -19593,7 +19593,7 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 0}
+  _pointableElement: {fileID: 2140412693}
   _rigidbody: {fileID: 2140412689}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
@@ -19731,7 +19731,7 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 0}
+  _pointableElement: {fileID: 2144761021}
   _rigidbody: {fileID: 2144761022}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 0
